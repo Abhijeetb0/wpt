@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Case-sensitive reflection of link[as]</title>
+<link rel="author" title="Your Name" href="mailto:you@example.com">
+<link rel="help" href="https://html.spec.whatwg.org/multipage/semantics.html#attr-link-as">
+<meta name="assert" content="Check whether link[as] attribute is case-sensitive in reflection and behavior.">
+<script>
+  const link = document.createElement("link");
+
+  // Test lowercase
+  link.as = "script";
+  console.assert(link.as === "script", "Lowercase 'script' should reflect exactly");
+
+  // Test uppercase
+  link.as = "SCRIPT";
+  console.assert(link.as === "SCRIPT", "Uppercase 'SCRIPT' should reflect exactly");
+
+  document.body.append("If no errors above, basic reflection works.");
+</script>
